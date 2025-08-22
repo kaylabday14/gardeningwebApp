@@ -1,3 +1,4 @@
+<!-- UI ELEMENTS -->
 <template>
   <div class="login-container">
     <div class="login-card">
@@ -135,6 +136,9 @@
   </div>
 </template>
 
+// TODO: implement axios into server side functions to talk to express.
+
+<!-- FUNCTIONS / LOGIC -->
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -158,6 +162,7 @@ const signupUsername = ref('')
 const signupEmail = ref('')
 const signupPassword = ref('')
 const signupConfirmPassword = ref('')
+
 
 const handleLogin = async () => {
   isLoading.value = true
@@ -257,6 +262,7 @@ const handleSignup = async () => {
 }
 </script>
 
+<!-- STYLING -->
 <style scoped>
 .login-container {
   min-height: 100vh;

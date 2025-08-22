@@ -1,3 +1,4 @@
+<!-- UI ELEMENTS -->
 <template>
     <div class="settings-container">
       <div class="settings-card">
@@ -35,50 +36,59 @@
     </div>
 </template>
 
+<!-- FUNCTIONS / LOGIC -->
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 
-// Settings state
+// Default settings state
 const selectedTheme = ref('light')
 const notificationsEnabled = ref(true)
 const selectedLanguage = ref('en')
 
+// User saved settings
 onMounted(() => {
   // Load saved settings from localStorage
-  selectedTheme.value = localStorage.getItem('theme') || 'light'
-  notificationsEnabled.value = localStorage.getItem('notifications') !== 'false'
-  selectedLanguage.value = localStorage.getItem('language') || 'en'
+  selectedTheme.value = localStorage.getItem('theme') || 'light' // chosen theme or default
+  notificationsEnabled.value = localStorage.getItem('notifications') !== 'false' // chosen notifications or default
+  selectedLanguage.value = localStorage.getItem('language') || 'en' // chosen language or default
 })
 
+// Back button event handler
 const handleBack = () => {
   router.push('/home')
 }
 
+// Save settings button event handler
 const saveSettings = () => {
   // Save settings to localStorage
   localStorage.setItem('theme', selectedTheme.value)
   localStorage.setItem('notifications', notificationsEnabled.value.toString())
   localStorage.setItem('language', selectedLanguage.value)
   
-  // TODO: Send to backend if needed
+  // TODO: Send to backend (maybe? not sure yet)
   alert('Settings saved successfully!')
 }
 
+// Reset settings button event handler
 const resetSettings = () => {
+  // Set to default settings
   selectedTheme.value = 'light'
   notificationsEnabled.value = true
   selectedLanguage.value = 'en'
   
-  // Clear localStorage
+  // Clear localStorage (take the trash out so the new can be implemented!)
   localStorage.removeItem('theme')
   localStorage.removeItem('notifications')
   localStorage.removeItem('language')
 }
+
+// TODO: Add functions for themes, notifications, and languages
 </script>
 
+<!-- STYLING -->
 <style scoped>
 .settings-container {
   min-height: 100vh;

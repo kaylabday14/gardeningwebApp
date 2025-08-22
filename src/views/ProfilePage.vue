@@ -1,3 +1,4 @@
+<!-- UI ELEMENTS -->
 <template>
     <div class="profile-container">
       <div class="profile-card">
@@ -84,6 +85,7 @@
     </div>
   </template>
 
+<!-- FUNCTIONS / LOGIC -->
 <script setup>
 import { ref, onMounted  } from 'vue'
 import { useRouter } from 'vue-router'
@@ -241,6 +243,7 @@ const deleteAccount = () => {
 
 </script>
 
+<!-- STYLING -->
 <style scoped>
 .profile-container {
   min-height: 100vh;

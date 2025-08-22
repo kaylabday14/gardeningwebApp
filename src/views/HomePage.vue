@@ -1,3 +1,4 @@
+<!-- UI ELEMENTS -->
 <template>
   <div class="home-container">
     <header class="header">
@@ -13,6 +14,7 @@
       <div class="dashboard-grid">
         <div class="card garden-overview">
           <h2>🌿 Garden Overview</h2>
+          // TODO: Replace data placeholders with functions 
           <div class="stats">
             <div class="stat">
               <span class="stat-number">12</span>
@@ -41,6 +43,7 @@
         
         <div class="card recent-activities">
           <h2>📅 Recent Activities</h2>
+          // TODO: Replace data placeholders with functions
           <div class="activity-list">
             <div class="activity-item">
               <span class="activity-icon">💧</span>
@@ -69,6 +72,7 @@
         <div class="card weather-widget">
           <h2>🌤️ Weather</h2>
           <div class="weather-info">
+            // TODO: Replace data placeholders with functions
             <div class="weather-main">
               <span class="temperature">72°F</span>
               <span class="condition">Partly Cloudy</span>
@@ -84,6 +88,7 @@
   </div>
 </template>
 
+<!-- FUNCTIONS / LOGIC -->
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -102,6 +107,7 @@ onMounted(() => {
   lastName.value = localStorage.getItem('lastName') || ''
   email.value = localStorage.getItem('email') || ''
 
+  // Display name, username or default
   if (firstName.value) {
     displayName.value = firstName.value
   } else if (username.value) {
@@ -130,8 +136,11 @@ const handleProfile = () => {
 const handleSettings = () => {
   router.push('/settings')
 }
+
+// TODO: Functions for all activities
 </script>
 
+<!-- STYLING -->
 <style scoped>
 .home-container {
   min-height: 100vh;
